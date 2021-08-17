@@ -1,0 +1,24 @@
+{
+  "name": "e-mart",
+  "version": "1.0.0",
+  "description": "E-Commerce Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu/capstone-anshul-anand-au16.git"
+  },
+  "author": "Anshul Anand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu/capstone-anshul-anand-au16/issues"
+  },
+  "homepage": "https://github.com/attainu/capstone-anshul-anand-au16#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.7",
+    "nodemon": "^2.0.12"
+  }
+}
