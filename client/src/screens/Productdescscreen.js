@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../actions/productActions';
+import { cartActions } from '../actions/cartActions';
 export default function Productdescscreen({ match }) {
   const productid = match.params.id;
   const dispatch = useDispatch();
+
+  const [quantity, setquantity] = useState(1);
+
   const getproductbyidstate = useSelector(
     (state) => state.getProductByIdReducer
   );
 
   const { product, loading, error } = getproductbyidstate;
+
+  function addtocart() {
+    dispatch(addToCart(product, quantity));
+  }
 
   useEffect(() => {
     dispatch(getProductById(productid));
@@ -34,11 +42,20 @@ export default function Productdescscreen({ match }) {
               <h1>Price: {product.price}</h1>
               <hr />
               <h1>Select Quantity</h1>
-              <select>
+              <select
+                value={quantity}
+                onChange={(e) => {
+                  setquantity(e.target.value);
+                }}
+              >
                 {[...Array(product.countInStock).keys()].map((x, i) => {
                   return <option value={i + 1}>{i + 1}</option>;
                 })}
               </select>
+              <hr />
+              <button className='btn btn-dark' onClick={addtocart}>
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>

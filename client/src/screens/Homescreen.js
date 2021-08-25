@@ -17,10 +17,6 @@ export default function Homescreen() {
     dispatch(getAllProducts());
   }, []);
 
-  // useEffect(() => {
-  //   console.log(products);
-  // }, [products]);
-
   return (
     <div>
       <div className='row justify-content-center'>
@@ -31,7 +27,7 @@ export default function Homescreen() {
         ) : (
           products.map((product) => {
             return (
-              <div className='col-md-3 m-2 p-2'>
+              <div className='col-md-3 m-2 p-2 card'>
                 <Product product={product} />
               </div>
             );
